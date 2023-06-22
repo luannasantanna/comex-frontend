@@ -5,7 +5,11 @@
  *   - Se o nome do cliente é Bill Gates, o cumprimento deve ser "Olá, Bill Gates!".
  *   - Se o nome do cliente é Steve Jobs, o cumprimento deve ser "Olá, Steve Jobs!".
  */
-function cumprimenta() {}
+function cumprimenta(nomeCliente) {
+    return `Olá ${nomeCliente}!`;
+}
+
+console.log(cumprimenta('Cácio José'));
 
 
 /**
@@ -19,7 +23,22 @@ function cumprimenta() {}
  *   - 4 itens: 12% de desconto;
  *   - 5 itens ou mais: 20% de desconto.
  */
-function calculaDesconto() {}
+function calculaDesconto(valorTotalCompras, quantidadeItem) {
+    if (quantidadeItem === 1) {
+        return valorTotalCompras;
+    } else if (quantidadeItem === 2) {
+        return (valorTotalCompras / 100) * 3;
+    } else if (quantidadeItem === 3) {
+        return (valorTotalCompras / 100) * 7;
+    } else if (quantidadeItem === 4) {
+        return (valorTotalCompras / 100) * 12;
+    } else {
+        return (valorTotalCompras / 100) * 20;
+    }
+}
+
+console.log(`O desconto é de ${calculaDesconto(500, 3)} reais`);
+
 
 
 /**
@@ -29,7 +48,17 @@ function calculaDesconto() {}
  *   - X é 100: calcula 1 + 2 + 3 + ... + 99 + 100, retorna 5050
  *   - X é 200: calcula 1 + 2 + 3 + ... + 199 + 200, retorna 20100
  */
-function somatorio() {}
+function somatorio(numeroX) {
+     let soma = 0;
+
+    for (let n = 1; n <= numeroX; n++) {
+        soma = soma + n;
+    }
+
+    return soma;
+}
+
+console.log(somatorio(200));
 
 
 /**
@@ -39,8 +68,16 @@ function somatorio() {}
  *   - n é 5: 5! = 120
  *   - n é 9: 9! = 362880
  */
-function fatorial() {}
+function fatorial(numeroN) {
+    let fatorialN = 1;
 
+    for (let n = 1; n <= numeroN; n++) {
+        fatorialN = fatorialN * n;
+    }
+
+    return fatorialN;
+}
+console.log(fatorial(5));
 
 /**
  * Implemente uma função que calcule uma função do segundo grau (ax² + bx + c = 0).
@@ -55,7 +92,15 @@ function equacaoDeSegundoGrau() {}
  *   - o MÊS na posição 2.
  *   - o DIA na posição 3.
  */
-function extraiElementosDaData() {}
+function extraiElementosDaData(diaMesAno) {
+    let anoMesDia = diaMesAno.reverse(function() {
+        return [];
+    })
+
+    return anoMesDia;
+}
+
+console.log(extraiElementosDaData(['dia', 'mes', 'ano']));
 
 
 /**
@@ -66,8 +111,21 @@ function extraiElementosDaData() {}
  *   - posição é 7: retorna o elemento 13.
  *   - posição é 8: retorna o elemento 21.
  */
-function fibonacci() {}
+function fibonacci(posicao) {
+    let somaDosNumeros = 0;
+    let numeroA = 0;
+    let numeroP = 1;
 
+    for (let n = 1; n < posicao; n++) {
+        somaDosNumeros = numeroA + numeroP;
+        numeroA = numeroP;
+        numeroP = somaDosNumeros;
+    }
+
+    return somaDosNumeros;
+}
+
+console.log(fibonacci(12));
 
 /**
  * Implemente uma função que recebe um array com notas de um aluno e uma função de callback,
